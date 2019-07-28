@@ -1,0 +1,7 @@
+name: CraftingShortcuts
+version: ${project.version}
+main: net.blumbye.craftingshortcuts.CraftingShortcuts
+api-version: 1.14
+authors: [BLumbye]
+description: Adds some extra crafting recipes
+website: www.blumbye.net
