@@ -103,17 +103,36 @@ public final class CraftingShortcuts extends JavaPlugin implements Listener {
         Bukkit.addRecipe(nameTagRecipe);
         recipes.add(nameTagKey);
 
+        /// BOAT RECIPES
+        recipes.add(MakeBoatRecipe(new RecipeChoice.MaterialChoice(Tag.OAK_LOGS), Material.OAK_BOAT));
+        recipes.add(MakeBoatRecipe(new RecipeChoice.MaterialChoice(Tag.SPRUCE_LOGS), Material.SPRUCE_BOAT));
+        recipes.add(MakeBoatRecipe(new RecipeChoice.MaterialChoice(Tag.BIRCH_LOGS), Material.BIRCH_BOAT));
+        recipes.add(MakeBoatRecipe(new RecipeChoice.MaterialChoice(Tag.JUNGLE_LOGS), Material.JUNGLE_BOAT));
+        recipes.add(MakeBoatRecipe(new RecipeChoice.MaterialChoice(Tag.ACACIA_LOGS), Material.ACACIA_BOAT));
+        recipes.add(MakeBoatRecipe(new RecipeChoice.MaterialChoice(Tag.DARK_OAK_LOGS), Material.DARK_OAK_BOAT));
 
         Bukkit.getPluginManager().registerEvents(new EventListeners(recipes), this);
     }
 
-    public NamespacedKey MakeSlabRecipe(Material slabMaterial, Material resultMaterial) {
+    private NamespacedKey MakeSlabRecipe(Material slabMaterial, Material resultMaterial) {
         ItemStack resultStack = new ItemStack(resultMaterial);
         NamespacedKey namespacedKey = new NamespacedKey(this, "slab_" + resultMaterial.toString());
         ShapedRecipe recipe = new ShapedRecipe(namespacedKey, resultStack);
 
         recipe.shape("S","S");
         recipe.setIngredient('S', slabMaterial);
+
+        Bukkit.addRecipe(recipe);
+        return namespacedKey;
+    }
+
+    private NamespacedKey MakeBoatRecipe(RecipeChoice logMaterial, Material resultMaterial) {
+        ItemStack resultStack = new ItemStack(resultMaterial);
+        NamespacedKey namespacedKey = new NamespacedKey(this, "boat_" + logMaterial.toString());
+        ShapedRecipe recipe = new ShapedRecipe(namespacedKey, resultStack);
+
+        recipe.shape("L L","LLL");
+        recipe.setIngredient('L', logMaterial);
 
         Bukkit.addRecipe(recipe);
         return namespacedKey;
