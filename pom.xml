@@ -6,7 +6,7 @@
 
     <groupId>net.blumbye</groupId>
     <artifactId>craftingShortcuts</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
 
     <name>Crafting Shortcuts</name>
