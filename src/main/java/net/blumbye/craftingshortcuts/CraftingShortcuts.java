@@ -127,7 +127,7 @@ public final class CraftingShortcuts extends JavaPlugin implements Listener {
     }
 
     private NamespacedKey MakeBoatRecipe(RecipeChoice logMaterial, Material resultMaterial) {
-        ItemStack resultStack = new ItemStack(resultMaterial);
+        ItemStack resultStack = new ItemStack(resultMaterial, 5);
         NamespacedKey namespacedKey = new NamespacedKey(this, "boat_" + logMaterial.toString());
         ShapedRecipe recipe = new ShapedRecipe(namespacedKey, resultStack);
 
